@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="text" id="str" />
+		<p id="result"></p>
+		<script>
+			document.getElementById("str").onchange = function () {
+				let str = document.getElementById("str").value;
+				if (check(str.toLocaleLowerCase())) {
+					document.getElementById("result").innerHTML = "String is palindrome";
+				} else {
+					document.getElementById("result").innerHTML =
+						"String is not palindrome";
+				}
+			};
+
+			function check(str) {
+				let count = str.length - 1;
+				for (let i = 0; i < Math.trunc(str.length / 2); i++) {
+					if (str[i] != str[count - i]) {
+						return false;
+					}
+				}
+				return true;
+			}
+		</script>
+	</body>
+</html>
